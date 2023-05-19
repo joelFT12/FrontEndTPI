@@ -11,7 +11,7 @@ const coffees = [
   { name: "imagen 9", image: "/images/icono.png"},
 ]
 
-const mostrarCards = () => {
+const showCoffees = () => {
     let output = ""
     coffees.forEach(
       ({ name, image }) =>
@@ -26,7 +26,7 @@ const mostrarCards = () => {
     container.innerHTML = output
   }
   
-  document.addEventListener("DOMContentLoaded", mostrarCards)
+  document.addEventListener("DOMContentLoaded", showCoffees)
 
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
