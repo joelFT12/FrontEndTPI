@@ -1,0 +1,41 @@
+{
+    "name": "DELIVERY APP",
+    "short_name": "DELIVERY",
+    "description": "Aplicacion de entrega a domicilio",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fdfdfd",
+    "theme_color": "#db49",
+    "orientation": "portrait-primary",
+    "icon": [
+        {
+            "src": "/images/icono.png",
+            "type": "image/png",
+            "size": "512x512"
+        },{
+            "src": "/images/icono.png",
+            "type": "image/png", "sizes": "72x72"
+          },
+          {
+            "src": "/images/icono.png",
+            "type": "image/png", "sizes": "96x96"
+          },
+          {
+            "src": "/images/icono.png",
+            "type": "image/png","sizes": "128x128"
+          },
+          {
+            "src": "/images/icono.png",
+            "type": "image/png", "sizes": "144x144"
+          },
+          {
+            "src":"/images/icono.png",
+            "type": "image/png", "sizes": "152x152"
+          },
+         
+          {
+            "src": "/images/icons/icon-512x512.png",
+            "type": "image/png", "sizes": "512x512"
+          }
+    ]
+}
