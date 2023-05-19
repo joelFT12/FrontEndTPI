@@ -6,9 +6,7 @@ const coffees = [
   { name: "imagen 4", image: "/images/icono.png" },
   { name: " imagen 5", image: "/images/icono.png" },
   { name: " imagen 6", image: "/images/icono.png" },
-  { name: "imagen 7", image: "/images/icono.png"},
-  { name: "imagen 8", image: "/images/icono.png" },
-  { name: "imagen 9", image: "/images/icono.png"},
+
 ]
 
 const showCoffees = () => {
