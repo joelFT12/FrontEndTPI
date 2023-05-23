@@ -1,32 +1,59 @@
-const container = document.querySelector(".container")
-const coffees = [
-  { name: "imagen 1", image: "/images/icono.png" },
-  { name: "imagen 2", image: "/images/icono.png" },
-  { name: "imagen 3", image: "/images/icono.png" },
-  { name: "imagen 4", image: "/images/icono.png" },
-  { name: " imagen 5", image: "/images/icono.png" },
-  { name: " imagen 6", image: "/images/icono.png" },
-  { name: "imagen 7", image: "/images/icono.png"},
-  { name: "imagen 8", image: "/images/icono.png" },
-  { name: "imagen 9", image: "/images/icono.png"},
+import { Card } from './src/js/CardComponent.js';
+var categorias=[
+    {
+    title:"Comida",
+    image:"https://img.freepik.com/vector-gratis/hamburguesa-realista-aislada_1284-12692.jpg?w=740&t=st=1684813116~exp=1684813716~hmac=91061849a0f3a7e06b62ee956c7cd46d1758371ae59973813af273f277a7dd54",
+    url:"comercio.html"
+},
+    {
+    title:"Comida",
+    image:"https://img.freepik.com/vector-gratis/hamburguesa-realista-aislada_1284-12692.jpg?w=740&t=st=1684813116~exp=1684813716~hmac=91061849a0f3a7e06b62ee956c7cd46d1758371ae59973813af273f277a7dd54",
+    url:"comercio.html"
+},
+    {
+    title:"Comida",
+    image:"https://img.freepik.com/vector-gratis/hamburguesa-realista-aislada_1284-12692.jpg?w=740&t=st=1684813116~exp=1684813716~hmac=91061849a0f3a7e06b62ee956c7cd46d1758371ae59973813af273f277a7dd54",
+    url:"comercio.html"
+},
+    {
+    title:"Comida",
+    image:"https://img.freepik.com/vector-gratis/hamburguesa-realista-aislada_1284-12692.jpg?w=740&t=st=1684813116~exp=1684813716~hmac=91061849a0f3a7e06b62ee956c7cd46d1758371ae59973813af273f277a7dd54",
+    url:"comercio.html"
+},
+    {
+    title:"Comida",
+    image:"https://img.freepik.com/vector-gratis/hamburguesa-realista-aislada_1284-12692.jpg?w=740&t=st=1684813116~exp=1684813716~hmac=91061849a0f3a7e06b62ee956c7cd46d1758371ae59973813af273f277a7dd54",
+    url:"comercio.html"
+},
+    {
+    title:"Comida",
+    image:"https://img.freepik.com/vector-gratis/hamburguesa-realista-aislada_1284-12692.jpg?w=740&t=st=1684813116~exp=1684813716~hmac=91061849a0f3a7e06b62ee956c7cd46d1758371ae59973813af273f277a7dd54",
+    url:"comercio.html"
+},
 ]
+// fetch('https://api.example.com/cards')
+//   .then(response => response.json())
+//   .then(data => {
+//     // Aquí puedes llamar a una función para renderizar los datos obtenidos
+//     renderCards(data);
+//   })
+//   .catch(error => {
+//     console.error('Error al obtener los datos de la API:', error);
+//   });
 
-const mostrarCards = () => {
-    let output = ""
-    coffees.forEach(
-      ({ name, image }) =>
-        (output += `
-                <div class="card">
-                  <img class="card--avatar" src=${image} />
-                  <h1 class="card--title">${name}</h1>
-                  <a class="card--link" href="#">Taste</a>
-                </div>
-                `)
-    )
-    container.innerHTML = output
-  }
+function renderCards(categorias) {
+    const container = document.getElementById('categorias-container');
+    container.innerHTML = ''; // Limpia el contenedor antes de renderizar los nuevos componentes
   
-  document.addEventListener("DOMContentLoaded", mostrarCards)
+    categorias.forEach(cardData => {
+        const card = new Card();
+        card.setAttribute('image', cardData.image);
+        card.setAttribute('title', cardData.title);
+        card.setAttribute('url', cardData.url);
+        container.appendChild(card);
+      });
+  }
+  renderCards(categorias);
 
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {

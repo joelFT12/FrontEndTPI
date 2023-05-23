@@ -2,33 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="webcomponent/manifest.json">
-    <script>
-        if ("ServiceWorker" in navigator) {
-            navigator.serviceWorker.register("DeliveryTpi.js")
-        }
-    </script>
-    <title>Delivery</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/css/style.css">
+  <link rel="manifest" href="manifest.json">
+
+  <script>if ('serviceWorker' in navigator) {
+      // Verificar si el Service Worker ya está registrado
+      if (navigator.serviceWorker.controller) {
+        console.log('El Service Worker ya está registrado.');
+      } else {
+        // Registrar el Service Worker
+        navigator.serviceWorker.register('/sw.js')
+          .then(function (registration) {
+            console.log('Service Worker registrado exitosamente:', registration.scope);
+          })
+          .catch(function (error) {
+            console.log('Error al registrar el Service Worker:', error);
+          });
+      }
+    } else {
+      console.log('Service Worker no es compatible con este navegador.');
+    }
+  </script>
+
+  <title>AppDelivery</title>
 </head>
 
 <body>
-    <main>
-        <nav>
-          <h1>DeliveryApp</h1>
-          <ul>
-            <li>Inicio</li>
-            <li>Categorias</li>
-            <li>mas...</li>
-          </ul>
-        </nav>
-        <div class="container"></div>
-      </main>
-      <script src="/aplicacion.js"></script>
+  <nav-bar></nav-bar>
+  <div class="grid-container" id="categorias-container">
 
+  </div>
+  <script type="module" src="aplicacion.js"></script>
+  <script type="module" src="./src/js/NavbarComponent.js"></script>
+  <script type="module" src="./src/js/CardComponent.js"></script>
 </body>
-
 </html>
