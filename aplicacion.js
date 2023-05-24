@@ -60,6 +60,32 @@ function renderCards(categorias) {
   categorias.forEach(img=>{
     img.image="https://img.freepik.com/vector-gratis/hamburguesa-realista-aislada_1284-12692.jpg?w=740&t=st=1684813116~exp=1684813716~hmac=91061849a0f3a7e06b62ee956c7cd46d1758371ae59973813af273f277a7dd54"
   })
+  // categorias.sort(function(a, b) {
+  //   const primero = a.nombre.toUpperCase();
+  //   const segundo = b.nombre.toUpperCase();
+
+  //   if (primero < segundo) {
+  //     return -1;
+  //   }
+  //   if (primero > segundo) {
+  //     return 1;
+  //   }
+
+  //   return 0;
+  // });
+  categorias.sort(function(a, b) {
+    const primero = a.comercioTipoComercioList.length;
+    const segundo = b.comercioTipoComercioList.length;
+    if (primero < segundo) {
+      return -1;
+    }
+    if (primero > segundo) {
+      return 1;
+    }
+
+    return 0;
+  });
+  categorias=categorias.slice(0,7);
   categorias.sort(function(a, b) {
     const primero = a.nombre.toUpperCase();
     const segundo = b.nombre.toUpperCase();
