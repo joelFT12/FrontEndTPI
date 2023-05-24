@@ -1,32 +1,33 @@
-const staticDevCoffee = "dev-coffee-site-v1"
-const assets = [
+const cacheName = "cache de delivery"
+const laCache = [
   "/",
   "/index.html",
-  "/css/style.css",
-  "/js/app.js",
+  "/style.css",
+  "/aplicacion.js",
   "/images/icono.png",
-  "/images/icono.png",
-  "/images/icono.png",
-  "/images/icono.png",
-  "/images/icono.png",
-  "/images/icono.png",
-  "/images/icono.png",
-  "/images/icono.png",
-  "/images/icono.png",
+
 ]
 
-self.addEventListener("install", installEvent => {
-  installEvent.waitUntil(
-    caches.open(staticDevCoffee).then(cache => {
-      cache.addAll(assets)
-    })
-  )
-})
-
-self.addEventListener("fetch", fetchEvent => {
-    fetchEvent.respondWith(
-      caches.match(fetchEvent.request).then(res => {
-        return res || fetch(fetchEvent.request)
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(cacheName)
+      .then(cache => {
+        return cache.addAll(laCache);
       })
-    )
-  })
+      .catch(error => {
+        console.error('Error opening cache:', error);
+      })
+  );
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        return response || fetch(event.request);
+      })
+      .catch(error => {
+        console.error('Error fetching from cache:', error);
+      })
+  );
+});
