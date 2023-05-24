@@ -1,4 +1,5 @@
 import { Card } from './src/js/CardComponent.js';
+import{Desplegable} from './src/js/desplegable.js'
 var categorias=[
     {
     title:"Comida",
@@ -64,8 +65,10 @@ async function traerdatos(){
 }
 
 
-function renderCards(categorias) {
+function renderCards(categorias,sitios) {
+    const desplegableC= document.getElementById('desplegable')
     const container = document.getElementById('categorias-container');
+    let sucursales=[]
     container.innerHTML = ''; // Limpia el contenedor antes de renderizar los nuevos componentes
   
   categorias.forEach(img=>{
@@ -79,7 +82,14 @@ function renderCards(categorias) {
         card.setAttribute('url', `producto.html?parametro=${cardData.producto.idComercio}`);
         container.appendChild(card);
       });
+
+      sitios.forEach(sitio =>{
+        sucursales.push(sitio.nombre)
+      })
+      const desp = new Desplegable();
+      desp.setAttribute('items',sucursales)
+      desplegableC.appendChild(desp)
   }
 datalocal= await traerdatos()
-  renderCards(datalocal.productoComercioList);
+  renderCards(datalocal.productoComercioList,datalocal.sucursalList);
   
