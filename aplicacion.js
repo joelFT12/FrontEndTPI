@@ -44,7 +44,7 @@ async function traerdatos(){
     //     console.error('Error al obtener los datos de la API:', error);
     //   });
     // //   console.log(dataSql)
-    let dataSql=fetch('http://localhost:8080/ParcialTPI/comercio')
+    let dataSql=fetch('http://localhost:8080/ParcialTPI/tipocomercio')
         .then(response => response.json())
         .catch(error => {
                 console.error('Error al obtener los datos de la API:', error);
@@ -60,12 +60,25 @@ function renderCards(categorias) {
   categorias.forEach(img=>{
     img.image="https://img.freepik.com/vector-gratis/hamburguesa-realista-aislada_1284-12692.jpg?w=740&t=st=1684813116~exp=1684813716~hmac=91061849a0f3a7e06b62ee956c7cd46d1758371ae59973813af273f277a7dd54"
   })
+  categorias.sort(function(a, b) {
+    const primero = a.nombre.toUpperCase();
+    const segundo = b.nombre.toUpperCase();
+
+    if (primero < segundo) {
+      return -1;
+    }
+    if (primero > segundo) {
+      return 1;
+    }
+
+    return 0;
+  });
   console.log(categorias)
     categorias.forEach(cardData => {
         const card = new Card();
         card.setAttribute('image', cardData.image);
         card.setAttribute('title', cardData.nombre);
-        card.setAttribute('url', cardData.url);
+        card.setAttribute('url', `comercio.html?parametro=${cardData.idTipoComercio}`);
         container.appendChild(card);
       });
   }
