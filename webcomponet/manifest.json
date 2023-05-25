@@ -1,0 +1,27 @@
+{
+  "name": "DELIVERY APP",
+  "short_name": "DELIVERY",
+  "description": "Aplicacion de entrega a domicilio",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#db49",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/src/image/icono.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+   
+    {
+      "src": "/src/image/pizza.jpg",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    }
+  ],
+  "serviceworker": {
+    "src": "./serviceWorker.js",
+    "scope": "/"
+  }
+}

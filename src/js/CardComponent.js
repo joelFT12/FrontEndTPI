@@ -39,29 +39,38 @@ export class Card extends HTMLElement {
     <style> 
     
     .card {
-        width: 300px;
-        border-radius: 4px;
-        padding: 10px;
-        text-align: center;
-        cursor: pointer; 
-        background-color:#728d87;
-        box-shadow: 5px 3px 10px #927a7a;
-        transition: all 0.3s;
+      margin           : 0 2em;
+      overflow         : hidden;
+      width            : 12rem;
+      height           : 14rem;
+      border-radius    : 10px;
+      padding          : 1.5em 1em 1.6em;
+      text-align       : center;
+      cursor           : pointer;
+      background-color : white;
+      box-shadow       : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      transition       : all 0.3s;
       }
-    .card:hover{
-      background-color:#a061d3;
-    }
-      .card-image {
-        border-radius: 4px;
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 10px;
+
+  .card:hover {
+      box-shadow : rgba(50, 50, 93, 0.25) 0px 15px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
       }
-  
-      .card-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
+
+  .card-image {
+      width         : 100%;
+      height        : 85%;
+      margin-bottom : 10px;
+      object-fit    : cover;
+
+      }
+
+  .card-title {
+      font-size     : 1.1rem;
+      font-weight   : bold;
+      margin-bottom : 10px;
+      color         : #1D2530;
+      padding-top   : .5em;
       }
     
     </style>

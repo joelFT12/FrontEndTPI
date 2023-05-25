@@ -76,16 +76,16 @@ function renderCards(categorias) {
   categorias.sort(function(a, b) {
     const primero = a.comercioTipoComercioList.length;
     const segundo = b.comercioTipoComercioList.length;
-    if (primero < segundo) {
+    if (primero > segundo) {
       return -1;
     }
-    if (primero > segundo) {
+    if (primero < segundo) {
       return 1;
     }
 
     return 0;
   });
-  categorias=categorias.slice(0,7);
+  categorias=categorias.slice(0,6);
   categorias.sort(function(a, b) {
     const primero = a.nombre.toUpperCase();
     const segundo = b.nombre.toUpperCase();

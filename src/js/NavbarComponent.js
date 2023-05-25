@@ -16,29 +16,76 @@ class Navbar extends HTMLElement {
     const template = html`
     <style>
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #b2b94b;
-      padding: 10px;
-    }
-    
-    .navbar-title {
-      font-weight: bold;
-      font-size: 20px;
-      color: white;
-    }
-    
-    .navbar-links {
-      display: flex;
-      gap: 10px;
-      
-    }
-    
-    .navbar-link {
-      text-decoration: none;
-      color: #000000;
-    }
+      display          : flex;
+      align-items      : center;
+      justify-content  : space-between;
+      background-color : #FFA700;
+      padding          : 0.5em 4.5em;
+      }
+
+  .navbar-title {
+      font-weight    : bold;
+      font-size      : 1.3rem;
+      color          : white;
+      letter-spacing : 0.1rem;
+      border         : 1px solid white;
+      padding        : 4px 15px;
+      }
+
+  .navbar-links {
+
+      }
+
+  .navbar-link {
+      text-decoration : none;
+      color           : white;
+      }
+
+  .install {
+
+      }
+
+  .navbar-links > a:first-child {
+      margin-right : 1.5rem;
+      }
+
+
+  @media (max-width : 767px) {
+
+      .navbar-title{
+          padding        : 4px 10rem;
+      }
+      .navbar {
+          flex-direction : column;
+
+          }
+
+      .navbar-links {
+          margin-top : 1.2rem;
+          padding    : 5px 10px;
+
+          }
+
+      .navbar-link {
+          display          : block;
+          padding          : 5px 4rem;
+          border: 1px solid white;
+          color: white ;
+          }
+
+      .navbar-links > a:first-child {
+          margin-right  : 0;
+          margin-bottom : 1em;
+          }
+
+      .install{
+          background-color: white;
+          color: #FFA700;
+          
+      }
+
+
+      }
     
     </style>
     <div class="navbar">
