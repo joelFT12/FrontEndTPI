@@ -107,6 +107,12 @@ function renderCards(categorias) {
         card.setAttribute('url', `comercio.html?parametro=${cardData.idTipoComercio}`);
         container.appendChild(card);
       });
+      const cardCategoria = new Card()
+      cardCategoria.setAttribute('image', "https://plus.unsplash.com/premium_photo-1677397576132-5d7412825d0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80");
+      cardCategoria.setAttribute('title', "Todas las categorias");
+      cardCategoria.setAttribute('url', "categorias.html");
+      container.appendChild(cardCategoria);
+   
   }
 datalocal= await traerdatos()
   renderCards(datalocal);
