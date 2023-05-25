@@ -21,7 +21,7 @@
     }
   ],
   "serviceworker": {
-    "src": "./serviceWorker.js",
+    "src": "/serviceWorker.js",
     "scope": "/"
   }
 }
