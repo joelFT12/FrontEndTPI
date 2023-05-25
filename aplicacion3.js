@@ -1,6 +1,6 @@
-import { Card } from './src/js/CardComponent.js';
-import { paginacion } from './src/js/paginacion.js';
-import { Desplegable } from './src/js/desplegable.js'
+import { Card } from './src/componentes/CardComponent.js';
+import { paginacion } from './src/componentes/paginacion.js';
+import { Desplegable } from './src/componentes/desplegable.js'
 var categorias = [
   {
     title: "Comida",

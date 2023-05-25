@@ -1,5 +1,5 @@
-import { Card } from './src/js/CardComponent.js';
-import { paginacion } from './src/js/paginacion.js';
+import { Card } from './src/componentes/CardComponent.js';
+import { paginacion } from './src/componentes/paginacion.js';
 var categorias = [
   {
     title: "Comida",

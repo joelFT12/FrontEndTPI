@@ -41,17 +41,18 @@ export class paginacion extends HTMLElement {
         .pagination {
           display: flex;
           justify-content: center;
-          margin-top: 20px;
+          margin-top: 10px;
+          margin-bottom: 20px
         }
 
         .pagination button {
-          background-color: #da5552;
+          background-color: #FFA700;
           border: none;
           color: #fff;
           padding: 5px 10px;
-          margin: 0 5px;
+          margin: -8px 25px;
           cursor: pointer;
-          border-radius: 4px;
+          border-radius: 20px;
           transition: all 0.3s;
         }
 

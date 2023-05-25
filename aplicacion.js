@@ -1,4 +1,4 @@
-import { Card } from './src/js/CardComponent.js';
+import { Card } from './src/componentes/CardComponent.js';
 var categorias=[
     {
     title:"Comida",
