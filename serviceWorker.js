@@ -1,9 +1,18 @@
-const cacheName = "cacheDelivery"
-const laCache = [
-  "/",
+const cacheName = "DeliveryCache";
+
+const addResourcesToCache = async (resources) => {
+  const cache = await caches.open(cacheName);
+  await cache.addAll(resources);
+};
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    addResourcesToCache([
+      "/",
       "/src/image/icono.png",
-      "/src/css/style.css",
       "/src/lib/lit-html.js",
+      "/src/lib/lit-html.js.map",
+      "/src/css/style.css",
       "/src/js/CardComponent.js",
       "/src/js/NavbarComponent.js",
       "/src/js/desplegable.js",
@@ -14,29 +23,35 @@ const laCache = [
       "/aplicacion.js",
       "/aplicacion2.js",
       "/aplicacion3.js",
-      "/categorias.js",
-]
+      "/categoria.js",
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(cacheName)
-      .then(cache => {
-        return cache.addAll(laCache);
-      })
-      .catch(error => {
-        console.error('Error opening cache:', error);
-      })
+    ])
   );
 });
 
-self.addEventListener('fetch', event => {
+
+self.addEventListener("fetch", function (event) {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
-      })
-      .catch(error => {
-        console.error('Error fetching from cache:', error);
-      })
+    caches.match(event.request).then(function (response) {
+      if (response) {
+        // Recurso encontrado en la caché, se devuelve la respuesta almacenada
+        return response;
+      } else {
+        // Recurso no encontrado en la caché, se realiza una solicitud a la red
+        return fetch(event.request).then(function (networkResponse) {
+          if (networkResponse && networkResponse.status === 200 && event.request.url.startsWith("http")) {
+            // Clonar la respuesta de la red antes de almacenarla en la caché
+            const clonedResponse = networkResponse.clone();
+
+            // Almacenar el recurso clonado en la caché
+            caches.open(cacheName).then(function (cache) {
+              cache.put(event.request, clonedResponse);
+            });
+          }
+          return networkResponse;
+        });
+      }
+    })
   );
 });
+

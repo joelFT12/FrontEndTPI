@@ -8,25 +8,6 @@
   <link rel="stylesheet" href="/src/css/style.css">
   <link rel="manifest" href="/webcomponet/manifest.json">
 
-  <script>if ('serviceWorker' in navigator) {
-      // Verificar si el Service Worker ya está registrado
-      if (navigator.serviceWorker.controller) {
-        console.log('El Service Worker ya está registrado.');
-      } else {
-        // Registrar el Service Worker
-        navigator.serviceWorker.register('/serviceWorker.js')
-          .then(function (registration) {
-            console.log('Service Worker registrado exitosamente:', registration.scope);
-          })
-          .catch(function (error) {
-            console.log('Error al registrar el Service Worker:', error);
-          });
-      }
-    } else {
-      console.log('Service Worker no es compatible con este navegador.');
-    }
-  </script>
-
   <title>AppDelivery</title>
 </head>
 
